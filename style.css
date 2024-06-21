@@ -1,178 +1,60 @@
-/* @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap"); */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Byekan";
-}
-@font-face {
-  font-family: "Byekan";
-  src: url("./asstes/fonts/Byekan.ttf") format("truetype"),
-    url("./asstes/fonts/Byekan.woff") format("woff");
-}
-@font-face {
-  font-family: "lalehzar";
-  src: url("../fonts/lalezar.ttf") format("truetype"),
-    url("../fonts/lalezar.woff") format("woff");
-}
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #deddde;
+    background-color: #da0d0d;
 }
 
-.container {
-  position: relative;
-  width: 400px;
-  height: 100px;
-  background-color: #333;
-  border-radius: 16px;
-  padding: 20px;
-  color: #fff;
-  transition: height 0.6s ease;
+h1 {
+    color: rgb(112, 179, 179);
 }
-.search-box {
-  position: relative;
-  width: 100%;
-  height: 55px;
-  /* background-color: red; */
-  display: flex;
-  align-items: center;
+
+h2 {
+    color: rgb(112, 179, 179);
 }
-.search-box i {
-  position: absolute;
-  right: 10px;
-  font-size: 28px;
-  color: brown;
-}
-.search-box input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: 2px solid white;
-  outline: none;
-  border-radius: 10px;
-  font-size: 22px;
-  color: #fff;
-  font-weight: 500;
-  padding: 0 40px;
-  text-transform: uppercase;
-}
-.search-box input::placeholder {
-  color: #fff;
-  text-transform: capitalize;
-}
-.search-box button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #fff;
-}
-.search-box button:active {
-  color: orangered;
-}
-.weather-box {
-  text-align: center;
-  margin: 40px 0;
-}
-.weather-box,
-.weather-details,
-.not-found {
-  visibility: hidden;
-}
-.weather-box.active,
-.weather-details.active,
-.not-found.active {
-  visibility: visible;
-}
-.weather-box img {
-  width: 60%;
-}
-.temp {
-  font-size: 64px;
-  line-height: 1;
-  font-weight: 700;
-  margin: 20px 0 6px -30px;
-  position: relative;
-}
-.temp span {
-  font-size: 30px;
-  position: absolute;
-  top: 0;
-  right: 30%;
-  transform: translate(-30%, 0);
-  color: orange;
-}
-.desc {
-  font-size: 22px;
-  font-weight: 500;
-}
-.weather-details {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 25px;
-}
-.humidity,
-.wind {
-  display: flex;
-  align-content: center;
-  width: 50%;
-}
-.wind {
-  justify-content: flex-end;
-}
-.humidity i,
-.wind i {
-  font-size: 56px;
-  margin-left: 10px;
-  color: lightblue;
-}
-.weather-details span {
-  display: inline-block;
-  font-size: 22px;
-  font-weight: 500;
-}
-.weather-details p {
-  font-size: 20px;
-  font-weight: 500;
-}
-.info-wind {
-  font-size: 20px;
-}
-.info-wind span {
-  font-size: 25px;
-  margin-right: 5px;
-}
-.info-humidity span {
-  direction: ltr;
-}
-.not-found {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  margin-top: 110px;
-}
-.not-found img {
-  width: 65%;
-}
-.not-found p {
-  font-size: 22px;
-  font-weight: 500;
-  margin-top: 12px;
-}
+
+button {
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+   
+   button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+   button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+   button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
